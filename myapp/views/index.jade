@@ -1,0 +1,49 @@
+extends layout
+
+block content
+  //h1= title
+  //p Welcome to #{title}
+  .index-main
+    .index-main-body
+      .index-header
+        h1.title='乐  高'
+        h2.subtitle='图纸分享，搭建乐趣'
+
+      .desk-front.SignFlow
+        .index-tab-navs
+          .navs-slider(data-active-index='1')
+            a(href='#signup') 注册
+            a(href='#signin') 登录
+            span.navs-slider-bar
+
+        div(class='view view-signin',style='display: block')
+          form(novalidate='novalidate')
+            .group-inputs
+              div(class='email input-wrapper')
+                input(required="" type="text" class="account" name="account" aria-label="手机号或邮箱" placeholder="手机号或邮箱")
+              .input-wrapper
+                input(required="" type="passwrord" name="password" aria-label="密码" placeholder="密码")
+            #summary.failure
+              ul
+            div(class='button-wrapper command')
+              button(class="sign-button submit" type="submit") 登录
+
+        div(class='view view-signup', style='display: none')
+          form.zu-side-login-box(action="/register/email" id="sign-form-1" autocomplete="off" novalidate="novalidate")
+            .group-inputs
+              div(class='name input-wrapper')
+                input(required="" type="text" name="fullname" aria-label="姓名" placeholder="姓名")
+              div(class='email input-wrapper')
+                input(required="" type="text" class="account" name="account" aria-label="手机号或邮箱" placeholder="手机号或邮箱")
+              .input-wrapper
+                input(required="" type="passwrord" name="password" aria-label="密码" placeholder="密码（不少于 6 位）")
+            #summary.failure
+              ul
+            div(class='button-wrapper command')
+              button(class="sign-button submit" type="submit") 注册
+    .footer
+
+  script(src='javascripts/main.js')
+
+
+
