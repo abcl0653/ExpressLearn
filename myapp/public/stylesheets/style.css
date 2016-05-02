@@ -257,10 +257,9 @@ a {}
     -webkit-transform: translate(8px, 0);
     -ms-transform: translate(8px, 0);
     transform: translate(8px, 0)
-
 }
 
- .SignFlow .input-wrapper label.error.is-visible {
+.SignFlow .input-wrapper label.error.is-visible {
     visibility: visible;
     opacity: 1;
     -ms-filter: "alpha(Opacity=100)";

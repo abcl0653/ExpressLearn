@@ -17,14 +17,14 @@ $("#sign-form-1").submit(function(event) {
 		$("input[name='fullname']").after(fullnameError);
 	}
 
-	var account = $("input[name='account']").val();
+	var account = $("input[name='account']", ".view-signup").val();
 	if (account.trim().length === 0) {
 
 		event.preventDefault();
 
 		var accountError = '<label class="error is-visible">请填写邮箱或手机号</lable>';
-		$("input[name='account']").next().remove(".error");
-		$("input[name='account']").after(accountError);
+		$("input[name='account']", ".view-signup").next().remove(".error");
+		$("input[name='account']", ".view-signup").after(accountError);
 	}
 
 	
@@ -34,7 +34,8 @@ $("#sign-form-1").submit(function(event) {
 
 $("input").focus(function(){
 	//console.log('testddd');
-  $(this).next().remove(".error");
+  //$(this).next().remove(".error");
+  $(this).next().text("tette");
 });
 
 //$("#sign-form-1").submit(function(event) {alert("alert called");});
