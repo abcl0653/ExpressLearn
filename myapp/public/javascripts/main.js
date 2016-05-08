@@ -12,9 +12,10 @@ $("#sign-form-1").submit(function(event) {
 
 		event.preventDefault();
 
-		var fullnameError = '<label id="fullnameError" class="error is-visible">请填写姓名</label>'
-		$("input[name='fullname']").next().remove(".error");
-		$("input[name='fullname']").after(fullnameError);
+		//var fullnameError = '<label id="fullnameError" class="error">请填写姓名</label>'
+		//$("input[name='fullname']").next().remove(".error");
+		//$("input[name='fullname']").after(fullnameError);
+		$('#fullnameError',".view-signup").addClass('is-visible');
 	}
 
 	var account = $("input[name='account']", ".view-signup").val();
@@ -22,9 +23,21 @@ $("#sign-form-1").submit(function(event) {
 
 		event.preventDefault();
 
-		var accountError = '<label class="error is-visible">请填写邮箱或手机号</lable>';
-		$("input[name='account']", ".view-signup").next().remove(".error");
-		$("input[name='account']", ".view-signup").after(accountError);
+		//var accountError = '<label class="error is-visible">请填写邮箱或手机号</lable>';
+		//$("input[name='account']", ".view-signup").next().remove(".error");
+		//$("input[name='account']", ".view-signup").after(accountError);
+		$("#accountError",".view-signup").addClass('is-visible');
+	}
+
+	var password = $("input[name='password']", ".view-signup").val();
+	if (password.trim().length === 0) {
+
+		event.preventDefault();
+
+		//var accountError = '<label class="error is-visible">请填写邮箱或手机号</lable>';
+		//$("input[name='account']", ".view-signup").next().remove(".error");
+		//$("input[name='account']", ".view-signup").after(accountError);
+		$("#passwordError",".view-signup").addClass('is-visible');
 	}
 
 	
@@ -35,7 +48,11 @@ $("#sign-form-1").submit(function(event) {
 $("input").focus(function(){
 	//console.log('testddd');
   //$(this).next().remove(".error");
-  $(this).next().text("tette");
+  $(this).next().removeClass('is-visible');
+});
+
+$('.input-wrapper').click(function() {
+	$(this).children().focus();
 });
 
 //$("#sign-form-1").submit(function(event) {alert("alert called");});
