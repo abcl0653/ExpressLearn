@@ -1,0 +1,11 @@
+div(class='view view-signin',style='display: block')
+  form(novalidate='novalidate' method='post')
+    .group-inputs
+      div(class='email input-wrapper')
+        input(required="" type="text" class="account" name="account" aria-label="手机号或邮箱" placeholder="手机号或邮箱")
+      .input-wrapper
+        input(required="" type="password" name="password" aria-label="密码" placeholder="密码")
+    #summary.failure
+      ul
+    div(class='button-wrapper command')
+      button(class="sign-button submit" type="submit") 登录

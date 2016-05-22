@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
+var fs = require('fs');
 
 /* Create a mysql connection  */
 var connection = mysql.createConnection({
@@ -13,9 +14,28 @@ var connection = mysql.createConnection({
 connection.connect();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  	
+router.get('/test', function(req,res,next) {
+	res.render('homepage');
+});
+
+router.get('/', function(req, res, next) {  	
   res.render('index', { title: 'Lego Stopby' });
+});
+
+router.get('/Crawler-Grabber',function(req,res,next) {
+	var dir = '/Users/cailin/Library/Mobile Documents/com~apple~CloudDocs/Crawler-Grabber_photo'
+	
+
+	var picList = fs.readdirSync(dir);
+	var picListObject = {};
+	picList.forEach(function(file,index) {
+		var pindex = 'p'+index;
+		picListObject[pindex] = file;
+	});
+
+	//console.log(picListObject);
+
+	res.render('picList',picListObject)
 });
 
 router.post('/',function(req, res, next) {
